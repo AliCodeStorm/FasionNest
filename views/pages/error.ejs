@@ -1,0 +1,38 @@
+<div class="container text-center py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="error-container">
+        <h1 class="display-1 text-danger mb-4"><%= typeof status !== 'undefined' ? status : '500' %></h1>
+        <h2 class="mb-4"><%= typeof message !== 'undefined' ? message : 'Something went wrong' %></h2>
+        <p class="lead mb-5">We're sorry, but something went wrong. Please try again later or contact support if the problem persists.</p>
+        <a href="/" class="btn btn-primary btn-lg">
+          <i class="fas fa-home me-2"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page-specific styles -->
+<%- contentFor('style') %>
+<style>
+  .error-container {
+    padding: 3rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+  
+  .display-1 {
+    font-size: 6rem;
+    font-weight: 700;
+  }
+</style>
+
+<!-- Page-specific scripts -->
+<%- contentFor('script') %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('Error page loaded');
+  });
+</script> 

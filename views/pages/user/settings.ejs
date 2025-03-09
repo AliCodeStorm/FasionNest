@@ -1,0 +1,182 @@
+<div class="container mt-4">
+  <h2>Account Settings</h2>
+  
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="list-group">
+        <a href="#password" class="list-group-item list-group-item-action active" data-bs-toggle="list">
+          <i class="fas fa-key me-2"></i> Change Password
+        </a>
+        <a href="#notifications" class="list-group-item list-group-item-action" data-bs-toggle="list">
+          <i class="fas fa-bell me-2"></i> Notification Settings
+        </a>
+        <a href="#privacy" class="list-group-item list-group-item-action" data-bs-toggle="list">
+          <i class="fas fa-shield-alt me-2"></i> Privacy Settings
+        </a>
+        <a href="#delete" class="list-group-item list-group-item-action text-danger" data-bs-toggle="list">
+          <i class="fas fa-trash-alt me-2"></i> Delete Account
+        </a>
+      </div>
+    </div>
+    
+    <div class="col-md-8">
+      <div class="tab-content">
+        <!-- Change Password -->
+        <div class="tab-pane fade show active" id="password">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0">Change Password</h5>
+            </div>
+            <div class="card-body">
+              <form action="/user/change-password" method="POST">
+                <div class="mb-3">
+                  <label for="currentPassword" class="form-label">Current Password</label>
+                  <input type="password" class="form-control" id="currentPassword" name="currentPassword" required>
+                </div>
+                <div class="mb-3">
+                  <label for="newPassword" class="form-label">New Password</label>
+                  <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+                </div>
+                <div class="mb-3">
+                  <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                  <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Password</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Notification Settings -->
+        <div class="tab-pane fade" id="notifications">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0">Notification Settings</h5>
+            </div>
+            <div class="card-body">
+              <form action="/user/notification-settings" method="POST">
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" type="checkbox" id="emailNotifications" name="emailNotifications" checked>
+                  <label class="form-check-label" for="emailNotifications">Email Notifications</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" type="checkbox" id="orderUpdates" name="orderUpdates" checked>
+                  <label class="form-check-label" for="orderUpdates">Order Updates</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" type="checkbox" id="promotions" name="promotions" checked>
+                  <label class="form-check-label" for="promotions">Promotions and Offers</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Settings</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Privacy Settings -->
+        <div class="tab-pane fade" id="privacy">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0">Privacy Settings</h5>
+            </div>
+            <div class="card-body">
+              <form action="/user/privacy-settings" method="POST">
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" type="checkbox" id="profileVisibility" name="profileVisibility" checked>
+                  <label class="form-check-label" for="profileVisibility">Public Profile</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" type="checkbox" id="activityTracking" name="activityTracking" checked>
+                  <label class="form-check-label" for="activityTracking">Activity Tracking</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Settings</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Delete Account -->
+        <div class="tab-pane fade" id="delete">
+          <div class="card">
+            <div class="card-header bg-danger text-white">
+              <h5 class="mb-0">Delete Account</h5>
+            </div>
+            <div class="card-body">
+              <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                Warning: This action cannot be undone. All your data will be permanently deleted.
+              </div>
+              <form action="/user/delete-account" method="POST">
+                <div class="mb-3">
+                  <label for="deleteConfirmation" class="form-label">Type "DELETE" to confirm</label>
+                  <input type="text" class="form-control" id="deleteConfirmation" name="deleteConfirmation" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-danger">Delete My Account</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page-specific styles -->
+<%- contentFor('style') %>
+<style>
+  .list-group-item {
+    border-radius: 0;
+    border-left: 3px solid transparent;
+  }
+  
+  .list-group-item.active {
+    background-color: #f8f9fa;
+    color: #0d6efd;
+    border-left: 3px solid #0d6efd;
+    font-weight: 500;
+  }
+  
+  .list-group-item.active i {
+    color: #0d6efd;
+  }
+  
+  .list-group-item:hover:not(.active) {
+    background-color: #f8f9fa;
+    border-left: 3px solid #dee2e6;
+  }
+  
+  .card {
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+</style>
+
+<!-- Page-specific scripts -->
+<%- contentFor('script') %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Bootstrap tabs
+    const triggerTabList = [].slice.call(document.querySelectorAll('.list-group-item'))
+    triggerTabList.forEach(function (triggerEl) {
+      new bootstrap.Tab(triggerEl).show()
+    })
+    
+    // Password validation
+    const newPasswordInput = document.getElementById('newPassword');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    
+    if (newPasswordInput && confirmPasswordInput) {
+      confirmPasswordInput.addEventListener('input', function() {
+        if (newPasswordInput.value !== confirmPasswordInput.value) {
+          confirmPasswordInput.setCustomValidity("Passwords don't match");
+        } else {
+          confirmPasswordInput.setCustomValidity('');
+        }
+      });
+    }
+  });
+</script> 

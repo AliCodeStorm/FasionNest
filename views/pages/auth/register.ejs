@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body p-5">
+        <h2 class="text-center mb-4">Create an Account</h2>
+        
+        <form action="/auth/register" method="POST">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<%= typeof name !== 'undefined' ? name : '' %>" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" value="<%= typeof email !== 'undefined' ? email : '' %>" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+            <div class="form-text">Password must be at least 6 characters long.</div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="password2" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="password2" name="password2" required>
+          </div>
+          
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+        </form>
+        
+        <hr class="my-4">
+        
+        <div class="text-center">
+          <p>Or register with:</p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="/auth/google" class="btn btn-outline-danger">
+              <i class="fab fa-google me-2"></i> Google
+            </a>
+            <a href="/auth/facebook" class="btn btn-outline-primary">
+              <i class="fab fa-facebook-f me-2"></i> Facebook
+            </a>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <p class="mb-0">Already have an account? <a href="/auth/login" class="text-decoration-none">Login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

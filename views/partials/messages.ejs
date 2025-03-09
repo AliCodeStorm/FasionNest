@@ -1,0 +1,79 @@
+<div class="container mt-3">
+  <!-- Flash Messages -->
+  <% if(typeof success_msg !== 'undefined' && success_msg.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= success_msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+  
+  <!-- Error Messages -->
+  <% if(typeof error_msg !== 'undefined' && error_msg.length > 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= error_msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+  
+  <!-- Passport Error Messages -->
+  <% if(typeof error !== 'undefined' && error.length > 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= error %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+  
+  <!-- Validation Errors -->
+  <% if(typeof errors !== 'undefined' && errors.length > 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <% errors.forEach(function(error) { %>
+        <%= error.msg %><br>
+      <% }); %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+</div>
+
+<!-- Inline styles for alerts -->
+<style>
+  .alert {
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+  
+  .alert-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #842029;
+  }
+  
+  .btn-close {
+    opacity: 0.5;
+  }
+  
+  .btn-close:hover {
+    opacity: 1;
+  }
+</style>
+
+<!-- JavaScript for auto-dismissing alerts -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Auto-dismiss alerts after 5 seconds
+    const alerts = document.querySelectorAll('.alert');
+    alerts.forEach(function(alert) {
+      setTimeout(function() {
+        const closeButton = alert.querySelector('.btn-close');
+        if (closeButton) {
+          closeButton.click();
+        }
+      }, 5000);
+    });
+  });
+</script> 

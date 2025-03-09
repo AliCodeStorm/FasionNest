@@ -1,0 +1,151 @@
+<!-- About Hero Section -->
+<section class="about-hero bg-light py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h1 class="display-4 fw-bold">About FashionNest</h1>
+        <p class="lead">Your premier destination for fashion and style</p>
+      </div>
+      <div class="col-md-6">
+        <img src="/images/about-hero.jpg" alt="About FashionNest" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="our-story py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center">
+        <h2 class="mb-4">Our Story</h2>
+        <p class="lead">Founded in 2023, FashionNest has grown from a small boutique to a leading online fashion destination.</p>
+        <p>We believe that everyone deserves to look and feel their best. Our mission is to provide high-quality, trendy fashion at accessible prices.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values Section -->
+<section class="values bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Our Values</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center">
+            <i class="fas fa-heart fa-3x text-primary mb-3"></i>
+            <h3 class="card-title h4">Quality First</h3>
+            <p class="card-text">We carefully curate our collections to ensure the highest quality standards.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center">
+            <i class="fas fa-leaf fa-3x text-primary mb-3"></i>
+            <h3 class="card-title h4">Sustainability</h3>
+            <p class="card-text">Committed to sustainable fashion and reducing environmental impact.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center">
+            <i class="fas fa-users fa-3x text-primary mb-3"></i>
+            <h3 class="card-title h4">Community</h3>
+            <p class="card-text">Building a community of fashion enthusiasts and style lovers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="team py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Our Team</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="card team-card h-100 border-0 shadow-sm">
+          <img src="/images/team/team1.jpg" class="card-img-top" alt="Team Member">
+          <div class="card-body text-center">
+            <h5 class="card-title">John Doe</h5>
+            <p class="card-text text-muted">Founder & CEO</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card team-card h-100 border-0 shadow-sm">
+          <img src="/images/team/team2.jpg" class="card-img-top" alt="Team Member">
+          <div class="card-body text-center">
+            <h5 class="card-title">Jane Smith</h5>
+            <p class="card-text text-muted">Creative Director</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card team-card h-100 border-0 shadow-sm">
+          <img src="/images/team/team3.jpg" class="card-img-top" alt="Team Member">
+          <div class="card-body text-center">
+            <h5 class="card-title">Mike Johnson</h5>
+            <p class="card-text text-muted">Head of Design</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card team-card h-100 border-0 shadow-sm">
+          <img src="/images/team/team4.jpg" class="card-img-top" alt="Team Member">
+          <div class="card-body text-center">
+            <h5 class="card-title">Sarah Wilson</h5>
+            <p class="card-text text-muted">Customer Experience</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Page-specific styles -->
+<%- contentFor('style') %>
+<style>
+  .about-hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  }
+  
+  .card {
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .team-card img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .values .card {
+    background: #fff;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .values .card:hover {
+    background: #f8f9fa;
+  }
+  
+  .values .fas {
+    color: #4a6fdc;
+  }
+</style>
+
+<!-- Page-specific scripts -->
+<%- contentFor('script') %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add any page-specific JavaScript here
+  });
+</script> 

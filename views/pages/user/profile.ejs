@@ -1,0 +1,100 @@
+<!-- Profile Section -->
+<section class="profile-section py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Profile Sidebar -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">Profile Picture</h5>
+          </div>
+          <div class="card-body text-center">
+            <% if (user.avatar) { %>
+              <img src="<%= user.avatar %>" alt="Profile Picture" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+            <% } else { %>
+              <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 150px; height: 150px;">
+                <i class="fas fa-user fa-4x text-white"></i>
+              </div>
+            <% } %>
+            <form action="/user/avatar" method="POST" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="avatar" class="form-label">Change Profile Picture</label>
+                <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*">
+              </div>
+              <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Content -->
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">Profile Information</h5>
+          </div>
+          <div class="card-body">
+            <form action="/user/profile" method="POST">
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= user.name %>" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" value="<%= user.email %>" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" value="<%= user.phone || '' %>">
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <textarea class="form-control" id="address" name="address" rows="3"><%= user.address || '' %></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Update Profile</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Page-specific styles -->
+<%- contentFor('style') %>
+<style>
+  .profile-section {
+    background-color: #f8f9fa;
+  }
+
+  .profile-image img {
+    border: 3px solid #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .card {
+    transition: transform 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .profile-stats h6 {
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+
+  .profile-stats span {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+</style>
+
+<!-- Page-specific scripts -->
+<%- contentFor('script') %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add any profile page specific JavaScript here
+  });
+</script> 
