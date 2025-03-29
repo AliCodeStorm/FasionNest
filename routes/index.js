@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     const trendingProducts = await Product.find({ trending: true }).limit(8);
     
     // Get new arrivals (sort by createdAt)
-    const newArrivals = await Product.find()
+    const newArrivals = await Product.find({ featured: false })
       .sort({ createdAt: -1 })
       .limit(8);
     
